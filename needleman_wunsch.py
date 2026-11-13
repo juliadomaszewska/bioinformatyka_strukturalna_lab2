@@ -19,7 +19,7 @@ def main():
             next(plik2)
             sekwencja2 = plik2.read().replace('\n', '').strip()
 
-    except PlikNieznaleziony:
+    except FileNotFoundError:
           print("Blad wczytywania pliku")
           sys.exit(1)
 
@@ -44,7 +44,7 @@ def main():
             match = Macierz[i-1][j-1] + (1 if sekwencja1[i-1] == sekwencja2[j-1] else -1)
             delete = Macierz[i-1][j] + gap_penalty
             insert = Macierz[i][j-1] + gap_penalty
-            Macierz[i][j] max(match, delete, insert)
+            Macierz[i][j] = np.max((match, delete, insert))
 
             if Macierz[i][j] == match:
                 Sciezka[i][j] = SKOS
@@ -85,7 +85,7 @@ def main():
     linia_dopasowania = "".join(["|" if a == b else " " for a, b in zip(dopasowana_sekwencja1, dopasowana_sekwencja2)])
 
     with open (nazwa_plik_wynik, "w") as plik:
-        plik.write ("Globlne dopasowanie Needlemana-Wunscha\n")
+        plik.write ("Globalne dopasowanie Needlemana-Wunscha\n")
         plik.write ("Score: "+ str(Macierz[dlugosc1][dlugosc2])+ "\n")
         plik.write(dopasowana_sekwencja1 + "\n")
         plik.write(linia_dopasowania + "\n")
