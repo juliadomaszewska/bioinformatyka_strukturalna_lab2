@@ -1,7 +1,7 @@
 # Algorytm Needlemana-Wunscha (globalne dopasowanie sekwencji)
 
 ## Opis programu
-Program wykonuje globalne dopasowanie dwóch sekwencji aminokwasowych za pomocą algorytmu Needlemana_Wunscha.
+Program wykonuje globalne dopasowanie dwóch sekwencji aminokwasowych za pomocą algorytmu Needlemana-Wunscha.
 
 ## Uruchomienie programu
 
@@ -17,4 +17,28 @@ Program należy uruchomić z trzema argumentami:
 Przykład uruchomienia:
 python3 needleman_wunsch.py sekwencja1.fasta sekwencja2.fasta wynik.txt
 
+Po uruchomieniu program wyświetli:
+Macierz przeliczona (wymiary: 12x11).
+Wynik zapisano w pliku: wynik.txt
 
+## Punktacja
+
+W programie zastosowano następującą punktację:
+- match (zgodność aminokwasów): +1
+- mismatch (niezgodność aminokwasów): -1
+- gap (przerwa): -2
+  
+## Przykładowy plik wynikowy
+
+Dla plików:
+- sekwencja1.fasta - MKTAYIAKQRQ
+- sekwencja2.fasta - MKTAFIAKRQ
+
+Plik wynikowy powinien wyglądać następująco:
+Globalne dopasowanie Needlemana-Wunscha
+Score: 6.0
+MKTAYIAKQRQ
+|||| ||| ||
+MKTAFIAK-RQ
+
+Znak | oznacza dopasowanie, a znak - oznacza wprowadzenie przerwy.
