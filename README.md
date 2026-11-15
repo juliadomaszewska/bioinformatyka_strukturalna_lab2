@@ -15,11 +15,15 @@ Program należy uruchomić z trzema argumentami:
 3. Wybraną nazwą pliku wynikowego.
 
 Przykład uruchomienia:
+```bash
 python3 needleman_wunsch.py sekwencja1.fasta sekwencja2.fasta wynik.txt
+```
 
 Po uruchomieniu program wyświetli:
+```text
 Macierz przeliczona (wymiary: 12x11).
 Wynik zapisano w pliku: wynik.txt
+```
 
 ## Punktacja
 
@@ -35,10 +39,13 @@ Dla plików:
 - sekwencja2.fasta - MKTAFIAKRQ
 
 Plik wynikowy powinien wyglądać następująco:
+
+```text
 Globalne dopasowanie Needlemana-Wunscha
 Score: 6.0
 MKTAYIAKQRQ
 |||| ||| ||
 MKTAFIAK-RQ
+```
 
-Znak | oznacza dopasowanie, a znak - oznacza wprowadzenie przerwy.
+Znak `|` oznacza dopasowanie, a znak `-` oznacza wprowadzenie przerwy.
